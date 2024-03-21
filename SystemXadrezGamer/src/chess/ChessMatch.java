@@ -1,10 +1,12 @@
 package chess;
 
-
 import boardgamer.Board;
+import boardgamer.Position;
+import chess.pieces.King;
+import chess.pieces.Rook;
 
+ //Importando o BOARD
 public class ChessMatch {
-
 	//Importando o BOARD
 	  private Board board;
 	  /*
@@ -18,8 +20,9 @@ public class ChessMatch {
 //Construtor para designar o tamanho do tabuleiro
 	  public ChessMatch() {
 		  board = new Board(8, 8);
+		  initialSetup();
 	  }
-//Metodo que ira retornar a matriz de pieces(peças) correspondente a ChessMatch
+ //Metodo que ira retornar a matriz de pieces(peças) correspondente a ChessMatch
 //Vamos liberar apenas a camada de peças e não de tabuleiro para o programa reconhecer	  
 	  public ChessPiece[][] getPieces(){
 		  //Criando variavel temporaria e matriz que ira receber a linha e coluna
@@ -34,4 +37,11 @@ public class ChessMatch {
 		  }
 		  return mat;
 	  } 
+	  //Metodo responsavel por iniciar a partida de xadrez
+	  private void initialSetup() {
+		  board.PlacePiece(new Rook(board, Color.WHITE), new Position(2,1));
+		  board.PlacePiece(new King(board, Color.BLACK), new Position(0,4));
+		  board.PlacePiece(new King(board, Color.WHITE), new Position(7,4));
+
+	  }
 }

@@ -39,4 +39,13 @@ public class Board {
 		public Piece piece(Position position) {
 			return pieces[position.getRow()][position.getColumn()];
 		}
+		//Metodo para acrescentar peças ao tabuleiro - Etapa 2 do projeto
+		//Não se esquecer que sempre terá que chamar as varaveis, matriz ou class para que
+		//O metodo entenda o que aquele "argumento" está recebendo
+		public void PlacePiece(Piece piece, Position position) {
+			//Terá que ir na matriz de peças do tabuleiro na linha e coluna marcada 
+			//E atribuir a essa posição uma peça que retornou como argumento
+			pieces [position.getRow()][position.getColumn()] = piece;
+			piece.position = position;
+		}
 }
