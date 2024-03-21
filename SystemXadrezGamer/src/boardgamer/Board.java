@@ -7,7 +7,7 @@ public class Board {
 		private int column;
 		//Matriz das peças
 		private Piece[][] pieces;
-
+		
 		public Board(int row, int column) {
 			this.row = row;
 			this.column = column;
@@ -30,5 +30,13 @@ public class Board {
 
 		public void setColumn(int column) {
 			this.column = column;
+		}
+		//Metodo que vai retornar linha e coluna da class Piece e implementar na matiz "pieces"
+		public Piece piece(int row, int column) {
+			return pieces [row][column];
+		}
+		//Sobrecarga que vai retornar a peça pela posição
+		public Piece piece(Position position) {
+			return pieces[position.getRow()][position.getColumn()];
 		}
 }
