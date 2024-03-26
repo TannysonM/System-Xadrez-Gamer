@@ -1,6 +1,8 @@
 package chess;
 
 import boardgamer.Board;
+import boardgamer.Piece;
+import boardgamer.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
@@ -41,14 +43,43 @@ public class ChessMatch {
 	// coordenada
 	// no sistema do xadrez
 
+	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
+		Position source = sourcePosition.toPosition();
+		Position target = targetPosition.toPosition();
+		ValidateSourcePosition(source);// validar posição de origem da peça
+		Piece capturedPiece = makeMove(source, target);
+		return (ChessPiece) capturedPiece; // down-cast.
+	}
+
+	private Piece makeMove(Position source, Position target) {
+		Piece p = board.removePiece(source);//remove a peça capiturada do local 
+		Piece capturedPiece = board.removePiece(target);// remove a peça do destino
+		board.PlacePiece(p, target);//coloca a peça capiturada e coloca o local de destino
+		return capturedPiece;
+	}
+	
+	//Validador da posição de origem
+	private void ValidateSourcePosition(Position position) {
+		if (!board.thereIsAPiece(position)) {
+			throw new ChessException("there is no piece on source position");
+		}
+	}
+	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.PlacePiece(piece, new ChessPosition(column, row).toPosition());
 	}
 
 	// Metodo responsavel por iniciar a partida de xadrez
 	private void initialSetup() {
-		placeNewPiece('b', 6, new Rook(board, Color.WHITE));
+		//BLACK
 		placeNewPiece('e', 8, new King(board, Color.BLACK));
-		placeNewPiece('e', 1, new King(board, Color.WHITE));
+		placeNewPiece('c', 8, new King(board, Color.BLACK));
+		placeNewPiece('d', 8, new King(board, Color.BLACK));
+		
+	
+		//WHITE
+		placeNewPiece('c', 1, new Rook(board, Color.WHITE));
+		placeNewPiece('d', 1, new Rook(board, Color.WHITE));
+		placeNewPiece('e', 1, new Rook(board, Color.WHITE));
 	}
 }
