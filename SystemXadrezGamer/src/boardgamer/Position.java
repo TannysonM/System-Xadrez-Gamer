@@ -27,6 +27,13 @@ public class Position {
 	public void setColumn(int column) {
 		this.column = column;
 	}
+	
+	//Atualizador uma nova posição da peça
+	public void setValues(int row, int column) {
+		this.row = row;
+		this.column = column;
+	}
+	
 	//ToString para teste e organiza a impressao que será feita no PROGRAM
 	@Override
 	public String toString() {
