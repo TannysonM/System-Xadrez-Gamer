@@ -37,6 +37,10 @@ public class Program {
 			    	System.out.print("Source: ");
 			    	ChessPosition source = UI.readChessPosition(sc);
 			    	
+			    	boolean[][] possibleMoves = chessmatch.possibleMoves(source);
+			    	UI.clearScreen();
+			    	UI.printBoard(chessmatch.getPieces(),possibleMoves);
+			    	
 			    	//Pedirá a posição para a onde o usuario deseja alocar a peça
 			    	System.out.println();
 			    	System.out.print("Target: ");

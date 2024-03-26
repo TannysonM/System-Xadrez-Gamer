@@ -53,25 +53,39 @@ public class UI {
 		// tabuleiro
 		// Esta sendo colocado "piece.length" porque estamos considerando que a matriz
 		// sera quadrada
-		System.out.println("-----JOGO DE XADREZ-----");
+		//System.out.println("-----JOGO DE XADREZ-----");
 		System.out.println();
 		for (int i = 0; i < pieces.length; i++) {
 			// para imprimir a numeração de cada linha em ordem descrescente
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pieces.length; j++) {
 				// Comando que ira imprimir a peça conforme a posição desejada pelo usuario
-				printPiece(pieces[i][j]);
+				printPiece(pieces[i][j], false);
 			}
 			System.out.println();// quebra de linha
 		}
 		System.out.println("  a b c d e f g h");
 	}
 
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) { 
+		for (int i = 0; i < pieces.length; i++) {
+			 System.out.print((8 - i) + " ");
+			for (int j = 0; j < pieces.length; j++) {
+				printPiece(pieces[i][j], possibleMoves[i][j]);
+			}
+			System.out.println();// quebra de linha
+		}
+		System.out.println("  a b c d e f g h");
+	}
+	
 	// Criando um metodo auxiliar para imprimir uma peça
-	private static void printPiece(ChessPiece piece) {
+	private static void printPiece(ChessPiece piece, boolean background) {
+		if (background) {
+			System.out.println(ANSI_BLUE_BACKGROUND);
+		}
 		if (piece == null) {
 			// Se não houver nenhuma peça no campo, apresentar um "-"
-			System.out.print("-");
+			System.out.print("-"+ ANSI_RESET);
 		} else {
 			if(piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);

@@ -42,6 +42,14 @@ public class ChessMatch {
 	// Metodo to toPosition que irá instanciar as peças de xadrez informando a
 	// coordenada
 	// no sistema do xadrez
+	
+	//Possibilita a impressão das posições possiveis atraves da posição de origem da peça
+	public boolean [][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();
+		ValidateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
