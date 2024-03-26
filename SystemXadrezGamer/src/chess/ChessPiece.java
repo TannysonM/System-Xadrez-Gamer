@@ -3,7 +3,7 @@ package chess;
 import boardgamer.Board;
 import boardgamer.Piece;
 
-public class ChessPiece extends Piece{
+public abstract class ChessPiece extends Piece{
 	//Atributo da class
 	private Color color;
 	//Construtor com superClass passando a chamada do board"
