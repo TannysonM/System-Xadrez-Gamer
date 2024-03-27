@@ -31,7 +31,7 @@ public class Program {
 					//Sempre que retorna, limpará a tela antes de tratar as exceções
 					UI.clearScreen();
 					//Mostrará o tabulerio
-			    	UI.printBoard(chessmatch.getPieces());
+			    	UI.printMatch(chessmatch);
 			    	//Pedirá a peça que o usuario deseja movimentar
 			    	System.out.println();
 			    	System.out.print("Source: ");
