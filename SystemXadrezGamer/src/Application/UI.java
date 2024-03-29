@@ -57,9 +57,15 @@ public class UI {
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println("Turn: " + chessmatch.getTurn());
+		if(!chessmatch.getCheckMate()) {
 		System.out.println("Waiting player: " + chessmatch.getCurrentPlayer());
 		if(chessmatch.getCheck()) {
 			System.out.println("CHECK!");
+		}
+	  }
+		else {
+			System.out.println("CHECK MATE!!");
+			System.out.println("Winner: " + chessmatch.getCurrentPlayer());
 		}
 	}
 
@@ -69,7 +75,6 @@ public class UI {
 		// Esta sendo colocado "piece.length" porque estamos considerando que a matriz
 		// sera quadrada
 		//System.out.println("-----JOGO DE XADREZ-----");
-		System.out.println();
 		for (int i = 0; i < pieces.length; i++) {
 			// para imprimir a numeração de cada linha em ordem descrescente
 			System.out.print((8 - i) + " ");
@@ -100,7 +105,7 @@ public class UI {
 		}
 		if (piece == null) {
 			// Se não houver nenhuma peça no campo, apresentar um "-"
-			System.out.print("-"+ ANSI_RESET);
+			System.out.print("-" + ANSI_RESET);
 		} else {
 			if(piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
@@ -121,7 +126,6 @@ public class UI {
 		System.out.print(ANSI_WHITE);
 		System.out.println(Arrays.toString(white.toArray()));//Impressão de valores no java
 		System.out.println(ANSI_RESET);
-	
 		System.out.print("Black: ");
 		System.out.print(ANSI_YELLOW);
 		System.out.println(Arrays.toString(black.toArray()));//Impressão de valores no java
