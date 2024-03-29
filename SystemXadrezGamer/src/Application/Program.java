@@ -36,7 +36,6 @@ public class Program {
 					//Mostrará o tabulerio
 			    	UI.printMatch(chessmatch, captured);
 			    	//Pedirá a peça que o usuario deseja movimentar
-			    	System.out.println();
 			    	System.out.print("Source: ");
 			    	ChessPosition source = UI.readChessPosition(sc);
 			    	
@@ -45,7 +44,6 @@ public class Program {
 			    	UI.printBoard(chessmatch.getPieces(),possibleMoves);
 			    	
 			    	//Pedirá a posição para a onde o usuario deseja alocar a peça
-			    	System.out.println();
 			    	System.out.print("Target: ");
 			    	ChessPosition target = UI.readChessPosition(sc);
 			    	

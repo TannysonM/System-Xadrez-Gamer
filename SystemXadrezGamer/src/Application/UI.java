@@ -101,7 +101,7 @@ public class UI {
 	// Criando um metodo auxiliar para imprimir uma peça
 	private static void printPiece(ChessPiece piece, boolean background) {
 		if (background) {
-			System.out.println(ANSI_BLUE_BACKGROUND);
+			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
 		if (piece == null) {
 			// Se não houver nenhuma peça no campo, apresentar um "-"
