@@ -32,7 +32,7 @@ public class ChessPosition {
 	//Quando um metodo estiver sublinhado, significa que ele é "static"
 	protected static ChessPosition fromPosition(Position position) {
 		//Precisamos sempre converter para Char, porque ela não é automatica no java
-		return new ChessPosition((char)('a' - position.getColumn()), 8 - position.getRow());
+		return new ChessPosition((char)('a' + position.getColumn()), 8 - position.getRow());
 	}
 
 	@Override
