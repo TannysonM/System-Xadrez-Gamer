@@ -1,6 +1,8 @@
 package Application;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import chess.ChessException;
@@ -25,13 +27,14 @@ public class Program {
 		// Class que ira apresentar uma Class grafica para imprimir a tabela
 		// Esse metodo vai receber a matriz de peças da minha partida
 		ChessMatch chessmatch = new ChessMatch();
+		List<ChessPiece> captured = new ArrayList<>();
 		
 		while (true) {
 			try {	
 					//Sempre que retorna, limpará a tela antes de tratar as exceções
 					UI.clearScreen();
 					//Mostrará o tabulerio
-			    	UI.printMatch(chessmatch);
+			    	UI.printMatch(chessmatch, captured);
 			    	//Pedirá a peça que o usuario deseja movimentar
 			    	System.out.println();
 			    	System.out.print("Source: ");
@@ -47,6 +50,11 @@ public class Program {
 			    	ChessPosition target = UI.readChessPosition(sc);
 			    	
 			    	ChessPiece capturedPiece = chessmatch.performChessMove(source, target);
+			
+			    	if(capturedPiece != null) {
+			    		captured.add(capturedPiece);
+			    	}
+			    	
 			}
 			catch(ChessException c) {
 				System.out.println(c.getMessage());
